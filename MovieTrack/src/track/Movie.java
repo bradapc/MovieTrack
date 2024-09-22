@@ -9,6 +9,8 @@ public class Movie {
 	private int year;
 	private LocalDate dateAdded;
 	private int rating;
+	private String genre;
+	static String[] possibleGenres = {"horror","thriller","comedy","action","drama"};
 	
 	public Movie(String name, int year, String author, int rating) {	
 		this.setName(name);
@@ -16,6 +18,24 @@ public class Movie {
 		this.setAuthor(author);
 		this.dateAdded = LocalDate.now();
 		this.setRating(rating);
+	}
+	
+	public static void printPossibleGenres() {
+		for (int i = 0; i < possibleGenres.length; i++) {
+			System.out.print("'" + possibleGenres[i] + "' ");
+		}
+	}
+	
+	public String getGenre() {
+		return genre;
+	}
+	
+	public void setGenre(String s) {
+		for (int i = 0; i < possibleGenres.length; i++) {
+			if (possibleGenres[i].equalsIgnoreCase(s)) {
+				genre = s;
+			}
+		}
 	}
 	
 	public int getRating() {
