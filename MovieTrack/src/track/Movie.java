@@ -1,15 +1,19 @@
 package track;
 
+import java.time.LocalDate;
+
 public class Movie {
 	private int id;
 	private String name;
 	private String author;
 	private int year;
+	private LocalDate dateAdded;
 	
 	public Movie(String name, int year, String author) {	
 		this.setName(name);
 		this.setYear(year);
 		this.setAuthor(author);
+		this.dateAdded = LocalDate.now();
 	}
 	
 	public String getName() {
@@ -49,5 +53,6 @@ public class Movie {
 		System.out.println("Title: " + getName());
 		System.out.println("Author: " + getAuthor());
 		System.out.println("Year: " + getYear());
+		System.out.println("Added on: " + dateAdded);
 	}
 }
