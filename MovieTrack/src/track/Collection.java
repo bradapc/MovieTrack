@@ -29,7 +29,7 @@ public class Collection {
 		}
 	}
 	
-	public static int getCollectionSize() {
+	public int getCollectionSize() {
 		return collectionArr.size();
 	}
 }
