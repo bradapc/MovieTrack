@@ -29,8 +29,12 @@ public class Main {
 				stdin.nextLine();
 				System.out.println("Enter the author: ");
 				String author = stdin.nextLine();
-				Movie newMovie = new Movie(title, year, author);
+				System.out.println("Enter a rating (0-5): ");
+				int userRating = stdin.nextInt();
+				stdin.nextLine();
+				Movie newMovie = new Movie(title, year, author, userRating);
 				myCollection.addToCollection(newMovie);
+				System.out.println("Added " + title + "to your collection. You have " + myCollection.getCollectionSize() + " movies in your collection.");
 			} else if (input.equalsIgnoreCase("delete")) {
 				System.out.println("Enter the title of the movie to delete.");
 				String title = stdin.nextLine();

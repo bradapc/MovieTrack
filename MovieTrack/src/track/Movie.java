@@ -8,12 +8,24 @@ public class Movie {
 	private String author;
 	private int year;
 	private LocalDate dateAdded;
+	private int rating;
 	
-	public Movie(String name, int year, String author) {	
+	public Movie(String name, int year, String author, int rating) {	
 		this.setName(name);
 		this.setYear(year);
 		this.setAuthor(author);
 		this.dateAdded = LocalDate.now();
+		this.setRating(rating);
+	}
+	
+	public int getRating() {
+		return rating;
+	}
+	
+	public void setRating(int newRating) {
+		if (newRating >= 0 && newRating <= 5) {
+			rating = newRating;
+		}
 	}
 	
 	public String getName() {
@@ -54,5 +66,6 @@ public class Movie {
 		System.out.println("Author: " + getAuthor());
 		System.out.println("Year: " + getYear());
 		System.out.println("Added on: " + dateAdded);
+		System.out.println("Your rating: " + getRating());
 	}
 }
