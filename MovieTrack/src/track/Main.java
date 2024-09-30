@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		FileHandler.createCollectionFile();
+		FileHandler.writeToCollectionFile();
 		Collection myCollection = new Collection();
 		
 		String input = "";
