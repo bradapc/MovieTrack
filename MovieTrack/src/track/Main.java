@@ -7,6 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		FileHandler.createCollectionFile();
 		FileHandler.writeToCollectionFile();
+		FileHandler.deleteCollectionFile();
 		Collection myCollection = new Collection();
 		
 		String input = "";

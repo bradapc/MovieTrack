@@ -28,4 +28,12 @@ public class FileHandler {
 			e.printStackTrace();
 		}
 	}
+	public static void deleteCollectionFile() {
+		File collectionFile = new File("collection.txt");
+		if (collectionFile.delete()) {
+			System.out.println("Deleted " + collectionFile.getName());
+		} else {
+			System.out.println("Failed to delete " + collectionFile.getName());
+		}
+	}
 }
