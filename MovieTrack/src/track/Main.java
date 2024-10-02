@@ -1,13 +1,11 @@
 package track;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
-		FileHandler.createCollectionFile();
-		FileHandler.writeToCollectionFile();
-		FileHandler.deleteCollectionFile();
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Collection myCollection = new Collection();
 		
 		String input = "";
@@ -45,6 +43,9 @@ public class Main {
 				System.out.println("Enter the title of the movie to delete.");
 				String title = stdin.nextLine();
 				myCollection.removeFromCollection(title);
+			} else if (input.equalsIgnoreCase("save")) {
+				System.out.println("Saved movie collection.");
+				myCollection.saveCollection();
 			} else {
 				System.out.println("Please enter a valid command. Type help to see commands.");
 			}

@@ -1,10 +1,23 @@
 package track;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Collection {
-	private String owner;
+public class Collection implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	static ArrayList<Movie> collectionArr = new ArrayList<Movie>();
+	
+	public Collection() throws ClassNotFoundException, IOException {
+		this.readCollection();
+	}
 	
 	public void addToCollection(Movie newMovie) {
 		newMovie.setID(getCollectionSize() + 1);
@@ -31,5 +44,20 @@ public class Collection {
 	
 	public int getCollectionSize() {
 		return collectionArr.size();
+	}
+	
+	public void saveCollection() throws IOException {
+		FileOutputStream fos = new FileOutputStream("collection.tmp");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(collectionArr);
+		oos.close();
+	}
+	
+	public void readCollection() throws IOException, ClassNotFoundException {
+		FileInputStream fis = new FileInputStream("collection.tmp");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		collectionArr = (ArrayList<Movie>) ois.readObject();
+		ois.close();
+		System.out.println("Loaded collection from collection.tmp");
 	}
 }

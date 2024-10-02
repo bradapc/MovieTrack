@@ -1,8 +1,13 @@
 package track;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Movie {
+public class Movie implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
 	private String author;
